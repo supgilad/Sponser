@@ -1,0 +1,10 @@
+<div id="search-component">
+        <h4>Discount Search</h4>
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+        <div>
+          <div *ngFor="let discount of discounts | async"
+               (click)="gotoDetail(discount)" class="search-result" >
+            {{discount.business}} 
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,30 @@
+<h2>Discounts</h2>
+<div>
+    <h1>Discount Details</h1>
+    <label>prize:</label> <input #prize />
+    <label>likes to achieve:</label> <input #likesToAchieve />
+    <label>business:</label> <input #business />
+    <button (click)="add(prize.value, likesToAchieve.value, business.value); prize.value='';
+     likesToAchieve.value=''; business.value=''">
+      Add
+    </button>
+  </div>
+<ul class="discounts">
+  <h4>Discount Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <li *ngFor="let discount of discounts | async"
+    [class.selected]="discount === selectedDiscount"
+    (click)="onSelect(discount)">
+    <span class="badge">{{discount.id}}</span> 
+    <label class='property'>prize: </label>{{discount.prize}} 
+    <label class='property'>business:</label> {{discount.business}} 
+    <label class='property'>likes to achieve:</label>{{discount.likesToAchieve}} 
+    <button class="sign" (click)="sign(discount)">sign</button>
+  </li>
+</ul>
+<div *ngIf="selectedDiscount">
+  <h2>
+    discount from {{selectedDiscount.business}} 
+  </h2>
+  <button (click)="gotoDetail()">Edit-for owner only!!</button>
+</div>

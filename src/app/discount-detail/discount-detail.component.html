@@ -1,0 +1,21 @@
+<div *ngIf="discount">
+        <h2>discount details!</h2>
+        <div>
+          <label>id: </label>{{discount.id}}</div>
+        <div>
+        <div>
+            <label>business: </label> {{discount.business}}
+        </div>
+        <div>
+          <label>prize: </label>
+          <input [(ngModel)]="discount.prize" placeholder="prize" />
+        </div>
+        <div>
+            <label>likes to achieve: </label>
+            <input [(ngModel)]="discount.likesToAchieve" placeholder="likes to achieve" />
+        </div>
+        <button (click)="goBack()">Back</button>
+        <button (click)="save()">Save</button>
+        <button class="delete"
+        (click)="delete(discount); $event.stopPropagation()">Delete</button>
+</div>
