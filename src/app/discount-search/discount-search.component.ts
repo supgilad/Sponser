@@ -1,3 +1,4 @@
+import { Discount } from '../models/discount';
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
  
@@ -12,7 +13,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { DiscountSearchService } from "../services/discount-search.service";
-import { Discount } from "../discount";
 
 
 @Component({

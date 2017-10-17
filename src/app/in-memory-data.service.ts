@@ -12,8 +12,13 @@ createDb() {
     { id: 8, prize: '2 beers next time', likesToAchieve: 4, business: 'MeOnTheMike' }
     ];
 
+    const login = [
+        { id: 1, email: 'yonatan', password: '123' },
+        { id: 2, email: 'yuval', password: '4' }
+        ];
+
     const campaigns:any = [];
 
-    return { discounts, campaigns};
+    return { discounts, campaigns, login};
 }
 }

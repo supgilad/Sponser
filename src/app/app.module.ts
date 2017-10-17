@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
@@ -13,6 +14,11 @@ import { DiscountsComponent } from "./discounts/discounts.component";
 import { DiscountSearchComponent } from "./discount-search/discount-search.component";
 import { DiscountService } from "./services/discount.service";
 import { CampaignService } from "./services/campaign.service";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+
+
 
 
 
@@ -23,14 +29,17 @@ import { CampaignService } from "./services/campaign.service";
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule ],
+    AppRoutingModule,
+    NgbModule.forRoot() ],
   declarations: [ 
     AppComponent,
     DashboardComponent,
     DiscountDetailComponent,
     DiscountsComponent,
-    DiscountSearchComponent ],
-    providers: [ DiscountService, CampaignService ],
+    DiscountSearchComponent,
+    LoginComponent,
+    WelcomePageComponent],
+    providers: [ DiscountService, CampaignService, AuthService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

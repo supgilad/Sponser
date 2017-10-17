@@ -1,8 +1,8 @@
+import { Discount } from './../models/discount';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
-import { Discount } from "../discount";
 import { DiscountService } from "../services/discount.service";
 
 @Component({

@@ -1,6 +1,6 @@
+import { Discount } from '../models/discount';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { Discount } from "../discount";
 import { Router } from "@angular/router";
 import { DiscountService } from "../services/discount.service";
 
@@ -25,7 +25,7 @@ import { CampaignService } from "../services/campaign.service";
   providers: [DiscountService, DiscountSearchService, CampaignService]
 })
 export class DiscountsComponent implements OnInit {
-  discounts: Discount[];
+  discounts: Observable<Discount[]>;
   selectedDiscount: Discount;
   private searchTerms = new Subject<string>();
   

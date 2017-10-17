@@ -1,8 +1,8 @@
+import { Discount } from '../models/discount';
+import { Campaign } from '../models/campaign';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Campaign } from '../campaign';
-import { Discount } from "../discount";
 
 
 @Injectable()

@@ -3,7 +3,7 @@ import { Http }       from '@angular/http';
  
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Discount } from "../discount";
+import { Discount } from '../models/discount';
 
 
 @Injectable()

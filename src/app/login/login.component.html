@@ -1,0 +1,20 @@
+  <form>
+  <div class="container" >
+            <div class="title">
+                Welcome
+            </div>
+
+            <div class="container">
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="uname" required [(ngModel)]="user.email">
+            
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="user.password">
+            
+                <span>{{errorMsg}}</span>
+                <button type="submit" (click)="login()">Login</button>
+              </div>
+        </div>
+</form>
+        
+   

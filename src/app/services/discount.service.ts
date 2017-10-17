@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Discount } from "../discount";
+import { Discount } from '../models/discount';
 
 @Injectable()
 export class DiscountService {
@@ -31,6 +31,7 @@ export class DiscountService {
         }
         
         update(discount: Discount): Promise<Discount> {
+            discount.likesToAchieve = +discount.likesToAchieve;
             const url = `${this.discountsUrl}/${discount.id}`;
             return this.http
               .put(url, JSON.stringify(discount), {headers: this.headers})
