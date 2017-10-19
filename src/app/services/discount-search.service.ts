@@ -11,10 +11,11 @@ export class DiscountSearchService {
  
   constructor(private http: Http) {}
  
-  search(term: string, property: string): Observable<Discount[]> {
+  search(term: any, property: string): Observable<Discount[]> {
     return this.http
                .get(`api/discounts/?${property}=${term}`)
                .map(response => response.json().data as Discount[]);
   }
+
 
 }

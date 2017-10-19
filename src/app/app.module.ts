@@ -1,3 +1,5 @@
+import { BusinessService } from './services/business-service';
+import { BusinessesComponent } from './businesses/businesses.component';
 import { AuthService } from './services/auth.service';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +19,7 @@ import { CampaignService } from "./services/campaign.service";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { BusinessDiscountsComponent } from './business-discounts/business-discounts.component';
 
 
 
@@ -38,8 +41,10 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     DiscountsComponent,
     DiscountSearchComponent,
     LoginComponent,
-    WelcomePageComponent],
-    providers: [ DiscountService, CampaignService, AuthService ],
+    WelcomePageComponent,
+    BusinessesComponent,
+    BusinessDiscountsComponent],
+    providers: [ DiscountService, CampaignService, AuthService, BusinessService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,0 +1,23 @@
+<div *ngIf="business">
+  <h1>{{business.name}}</h1>
+  <h2>likes: {{business.likes}}</h2>
+  <div class="btn-group">
+      <button>POST</button>
+      <button  (click)="likeToBusiness()">LIKE</button>
+    </div>
+</div>
+
+
+
+
+<ul class="discounts">
+  <li *ngFor="let discount of discounts">
+    <label class='property'>prize: </label>{{discount.prize}} 
+    <label class='property'>likes to achieve:</label>{{discount.likesToAchieve}} 
+    <label class='property'>likes you spent:</label>{{discount.likesSpent}}   
+    <button class="drop" (click)="removeLikeFromDiscount(discount.id)">-</button>    
+    <button class="spend" (click)="addLikeToDiscount(discount.id)">+</button>    
+  </li>
+</ul>
+
+<button (click)="saveDetails()">Save!!</button>
