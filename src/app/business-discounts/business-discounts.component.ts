@@ -35,9 +35,11 @@ constructor(private businessService: BusinessService,
       this.location.back();
   }
 
-  likeToBusiness() {
-    this.business.likes++;
-  }
+    post() {
+      this.business.likes = 15;
+      this.business.posted = true;
+      this.businessService.update(this.business).then();
+    }
 
   addLikeToDiscount(discountID: number) {
      const discount = this.discounts.filter(

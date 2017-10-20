@@ -34,13 +34,7 @@ export class BusinessesComponent implements OnInit {
     private businessService: BusinessService,
     private businessSearchService: BusinessSearchService) { }
  
-  // getDiscounts(): void {
-  //   this.discountService.getDiscounts().then(discounts => this.discounts = discounts);
-  // }
- 
-  // ngOnInit(): void {
-  //   this.getDiscounts();
-  // }
+
  
   onSelect(business: Business): void {
     this.router.navigate(['/businessDetail', business.id]);
@@ -48,21 +42,13 @@ export class BusinessesComponent implements OnInit {
  
 
 
-  // add(prize: string, likesToAchieve: number, business: string): void {
-  //   if(!prize || !business) {return ;}
-  //   this.discountService.create(prize, +likesToAchieve, business).then(this.selectedDiscount = null);
-  //   //this.discountService.create(prize, +likesToAchieve, business).then(discount => {this.discounts.push(discount); this.selectedDiscount = null;})
-  // }
-
+ 
   // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
   }
 
-  // sign(business: Business){
-  //   this.campaignService.create(discount).then(() => null);
-  // }
- 
+
   ngOnInit(): void {
     this.businesses = this.searchTerms
       .debounceTime(300)        // wait 300ms after each keystroke before considering the term

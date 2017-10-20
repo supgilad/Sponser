@@ -11,10 +11,10 @@ createDb() {
     ];
 
     const businesses = [
-        { id: 1, name: 'nike', likes: 0},        
-        { id: 2, name: 'aroma', likes: 0},        
-        { id: 3, name: 'escape room', likes: 15},
-        { id: 4, name: 'MeOnTheMike', likes: 0}
+        { id: 1, name: 'nike', likes: 0, posted: false},        
+        { id: 2, name: 'aroma', likes: 0, posted: false},        
+        { id: 3, name: 'escape room', likes: 0, posted: false},
+        { id: 4, name: 'MeOnTheMike', likes: 0, posted: false}
     ]
     
 
