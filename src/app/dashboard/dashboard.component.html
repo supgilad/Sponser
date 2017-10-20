@@ -1,7 +1,7 @@
 <h3>Business that i am the sponser</h3>
 <div class="grid grid-pad">
   <a *ngFor="let business of businesses"   class="col-1-4">
-    <div class="module business">
+    <div class="module business" (click)=onSelect(business)>
       <h4>{{business.name}}</h4>
     </div>
   </a>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BusinessSearchService } from './../services/business-search.service';
 import { Business } from './../models/business';
 import { Campaign } from '../models/campaign';
@@ -16,10 +17,15 @@ export class DashboardComponent implements OnInit {
             businesses => this.businesses = businesses
     )}
 
+    onSelect(business: Business): void {
+        this.router.navigate(['/businessDetail', business.id]);
+      }
 
     businesses: Business[] = [];
 
-    constructor(private businessSearchService: BusinessSearchService) {}
+    constructor(private businessSearchService: BusinessSearchService,
+        private router: Router,
+    ) {}
 
 
  }
