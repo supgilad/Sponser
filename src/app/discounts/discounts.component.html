@@ -11,6 +11,7 @@
   </div>
 <ul class="discounts">
   <h4>Discount Search</h4>
+  <h3>Here should be filter (and order by) disocunts by num of likes, how many people achieve the prize and so on</h3>  
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
   <li *ngFor="let discount of discounts | async"
     [class.selected]="discount === selectedDiscount"

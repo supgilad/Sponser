@@ -20,6 +20,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { BusinessDiscountsComponent } from './business-discounts/business-discounts.component';
+import { PrizesComponent } from './prizes/prizes.component';
 
 
 
@@ -43,7 +44,8 @@ import { BusinessDiscountsComponent } from './business-discounts/business-discou
     LoginComponent,
     WelcomePageComponent,
     BusinessesComponent,
-    BusinessDiscountsComponent],
+    BusinessDiscountsComponent,
+    PrizesComponent],
     providers: [ DiscountService, CampaignService, AuthService, BusinessService ],
   bootstrap:    [ AppComponent ]
 })

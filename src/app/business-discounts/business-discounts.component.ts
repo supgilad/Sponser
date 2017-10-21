@@ -1,3 +1,4 @@
+import { DiscountService } from './../services/discount.service';
 import { Discount } from './../models/discount';
 import { DiscountSearchService } from './../services/discount-search.service';
 import { BusinessService } from './../services/business-service';
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-business-discounts',
   templateUrl: './business-discounts.component.html',
   styleUrls: ['./business-discounts.component.css'],
-  providers: [BusinessService, DiscountSearchService]  
+  providers: [BusinessService, DiscountSearchService, DiscountService]  
 })
 export class BusinessDiscountsComponent implements OnInit {
 
@@ -28,6 +29,7 @@ export class BusinessDiscountsComponent implements OnInit {
 }
 constructor(private businessService: BusinessService,
     private discountSearchService: DiscountSearchService,
+    private discountService: DiscountService,    
     private route: ActivatedRoute,
     private location: Location){}
 
@@ -58,8 +60,12 @@ constructor(private businessService: BusinessService,
       
   }
 
-  save(): void {
-      this.businessService.update(this.business)
-        .then(() => this.goBack());
+  saveDetails(): void {
+    for (const discount of this.discounts) {
+      this.discountService.update(discount).then();
+    }
+
+    this.businessService.update(this.business)
+      .then(() => this.goBack());
     }
 }

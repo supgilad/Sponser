@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Discount } from '../models/discount';
+import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DiscountService {
@@ -10,10 +12,9 @@ export class DiscountService {
     
     constructor(private http: Http) { }
 
-    getDiscounts(): Promise<Discount[]> {
+    getDiscounts(): Observable<Discount[]> {
         return this.http.get(this.discountsUrl)
-        .toPromise()
-        .then(response => response.json().data as Discount[])
+        .map(response => response.json().data as Discount[])
         .catch(this.handleError);
     }
 
