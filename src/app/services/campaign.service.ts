@@ -44,7 +44,7 @@ export class CampaignService {
         create(discount: Discount, likesYouHaveNow: number = 0, completed: boolean = false): Promise<Campaign> {
             return this.http.post(this.campaignsUrl, JSON.stringify({likesYouHaveNow: likesYouHaveNow,completed: completed,
             discount: {prize: discount.prize, likesToAchieve: discount.likesToAchieve, id: discount.id,
-            business: discount.business}}), {headers : this.headers})
+            business: discount.businessID}}), {headers : this.headers})
             .toPromise().then(res => res.json().data as Campaign).catch(this.handleError);
         }
 

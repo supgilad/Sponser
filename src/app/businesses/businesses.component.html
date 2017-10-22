@@ -1,0 +1,9 @@
+<ul class="businesses">
+  <h4>Business Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <li *ngFor="let business of businesses | async"
+    [class.selected]="business === selectedBusiness"
+    (click)="onSelect(business)">
+    <label class='property'></label>{{business.name}} 
+  </li>
+</ul>

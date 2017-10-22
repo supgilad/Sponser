@@ -1,33 +1,32 @@
+import { Router } from '@angular/router';
+import { BusinessSearchService } from './../services/business-search.service';
+import { Business } from './../models/business';
 import { Campaign } from '../models/campaign';
 import { Component, OnInit } from '@angular/core';
-import { CampaignService } from "../services/campaign.service";
 
 
 @Component({
     selector: 'my-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: [ './dashboard.component.css' ],
+    providers: [BusinessSearchService]    
   })
 export class DashboardComponent implements OnInit {
     ngOnInit(): void {
-        this.getCampaigns(); 
-    }
-    campaigns: Campaign[] = [];
+        this.businessSearchService.search(true, 'posted').subscribe(
+            businesses => this.businesses = businesses
+    )}
 
-    getCampaigns() : void {
-        this.campaignService.getCampaigns().then(campaigns => this.campaigns = campaigns);          
-    }
-    
-    addLike(campaign:Campaign): void {
-        campaign.likesYouHaveNow++;
-        if (campaign.likesYouHaveNow === campaign.discount.likesToAchieve){
-            campaign.completed = true;
-        }        
-        this.campaignService.update(campaign)
-          .then(() => this.getCampaigns());
+    onSelect(business: Business): void {
+        this.router.navigate(['/businessDetail', business.id]);
       }
 
-    constructor(private campaignService: CampaignService) {}
+    businesses: Business[] = [];
+
+    constructor(private businessSearchService: BusinessSearchService,
+        private router: Router,
+    ) {}
+    
 
 
  }
